@@ -5,7 +5,7 @@ import { Image } from 'react-native';
 export default function Home({ navigation }) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
-    console.log(data);
+    
 
     useEffect(() => {
         fetch('https://comms.globalxchange.com/coin/vault/get/all/coins')
@@ -15,7 +15,7 @@ export default function Home({ navigation }) {
             .finally(() => setLoading(false));
     }, []);
 
-    const ch = { name: "sunil", age: "12" }
+    
     return (
 
         <View style={{ flex: 1, padding: 24 }}>
