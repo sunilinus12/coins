@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Text, View, Image,Dimensions } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Check from './Check';
 
@@ -7,7 +7,7 @@ export default function Detailed({ route }) {
   const ge = route.params;
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
- 
+
   useEffect(() => {
     const ge = route.params;
     const sym = ge.coinSymbol;
@@ -22,25 +22,34 @@ export default function Detailed({ route }) {
   return (
 
 
-    <View style={{ flex: 1, padding: 24 }}>
+    <View style={{ flex: 1, padding: 24, backgroundColor: "white" }}>
       {isLoading ? <Text>Loading...</Text> :
         (<View style={{ flex: 1, flexDirection: 'column', justifyContent: 'space-between' }}>
-          <View style={{ flex: 1 }}>
-            <Text> name: {ge.coinName}</Text>
+          <View style={{ flex: 0.5, justifyContent: "center", alignItems: "center" }}>
+            <View style={{ width: 40, height: 40 }}>
+              <Image
+                style={{ width: "100%", height: 5 / 100 * Dimensions.get("screen").height }}
+                resizeMode="contain"
+                source={{ uri: ge.coinImage }}
 
-            <Text> price: {ge.usd_price}</Text>
-           
+              />
+            </View>
+            <Text style={{ fontSize: 30, color: "black", fontWeight: "900" }}>{ge.symbol} 6,532.00</Text>
+            <Text>{ge.symbol}525 <Text style={{ color: "green" }}>| 15.20%</Text></Text>
+
+
+
 
           </View>
-          <Check/>
-          <FlatList style={{flex:1}}
+          <Check />
+          <FlatList style={{ flex: 1 }}
             data={data.Data.Data}
             keyExtractor={({ id }, index) => id}
             renderItem={({ item }) => (
               <>
 
-                <View style={{ marginVertical:4,borderBottomColor:"black",borderBottomWidth:2}}>
-                  <Text  style={{fontWeight:"700"}}>  Data:</Text>
+                <View style={{ marginVertical: 4, borderBottomColor: "black", borderBottomWidth: 2 }}>
+                  <Text style={{ fontWeight: "700" }}>  Data:</Text>
                   <Text>"time": {item.time},</Text>
                   <Text>"high": {item.high},</Text>
                   <Text>"low": {item.low},</Text>

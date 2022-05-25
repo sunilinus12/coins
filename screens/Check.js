@@ -2,20 +2,16 @@ import { View, Text,Dimensions } from 'react-native'
 import React from 'react'
 import {
     LineChart,
-    BarChart,
-    PieChart,
-    ProgressChart,
-    ContributionGraph,
-    StackedBarChart
+   
 } from "react-native-chart-kit";
 export default function Check() {
     return (
-        <View>
+        <View style={{width:"100%"}}>
             <View>
               
                 <LineChart
                     data={{
-                        labels: ["January", "February", "March", "April", "May", "June"],
+                        labels: ["2", "4", "6", "8", "10", "12"],
                         datasets: [
                             {
                                 data: [
@@ -29,25 +25,24 @@ export default function Check() {
                             }
                         ]
                     }}
-                    width={88/100*Dimensions.get("window").width} // from react-native
-                    height={220}
-                    yAxisLabel="$"
-                    yAxisSuffix="k"
+                    width={100/100*Dimensions.get("window").width} // from react-native
+                    height={"100%"}
+                   
                     yAxisInterval={1} // optional, defaults to 1
                     chartConfig={{
-                        backgroundColor: "#e26a00",
-                        backgroundGradientFrom: "#fb8c00",
-                        backgroundGradientTo: "#ffa726",
-                        decimalPlaces: 2, // optional, defaults to 2dp
-                        color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                        backgroundColor: "white",
+                        backgroundGradientFrom: "#f7f6ff",
+                        backgroundGradientTo: "white",
+                        decimalPlaces: 1, // optional, defaults to 2dp
+                        color: (opacity = 1) => `rgba(137, 137, 137, ${opacity})`,
                         labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                         style: {
                             borderRadius: 16
                         },
                         propsForDots: {
                             r: "6",
-                            strokeWidth: "2",
-                            stroke: "#ffa726"
+                            strokeWidth: "0.5",
+                            stroke: "gray"
                         }
                     }}
                     bezier
