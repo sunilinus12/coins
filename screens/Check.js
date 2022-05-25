@@ -6,7 +6,7 @@ import {
 } from "react-native-chart-kit";
 export default function Check() {
     return (
-        <View style={{width:"100%"}}>
+        <View>
             <View>
               
                 <LineChart
@@ -26,7 +26,7 @@ export default function Check() {
                         ]
                     }}
                     width={100/100*Dimensions.get("window").width} // from react-native
-                    height={"100%"}
+                    height={220}
                    
                     yAxisInterval={1} // optional, defaults to 1
                     chartConfig={{
